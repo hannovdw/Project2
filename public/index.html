@@ -92,13 +92,14 @@
     });
 
     ReactDOM.render(<Metas/>,document.getElementById('metas'));
-    
     </script>
+
+
+    <!-- This script is my Text upload and classification code-->
 
     <input type="file" name="inputfile" id="inputfile"/>
     <pre id="output"></pre>
     
-    <!-- This script is my Text upload and classification code-->
     <script type="text/javascript">
     var textContent;
         document.getElementById('inputfile')
@@ -133,7 +134,7 @@
                                 if(number[0]+number[1] == '09')
                                     return 'Premium/Machine'
                             else
-                            return false
+                            return false;
                         }
 //loop through array to check for personal data
                         for(index=0; index<contarr.length; index++)
@@ -143,8 +144,10 @@
 
                 }
             textContent = fr.readAsText(this.files[0]);
-
             })
+            
+
+
     </script>
     </body> 
 </html>
