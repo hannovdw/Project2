@@ -33,7 +33,7 @@
                         <span className={metas.object.name}></span>
                         <span className="name">{metas.obj.age}</span>
                         <span className="rank">{metas.obj.dob}</span>
-                        </li>
+                    </li>
                 )
             })
             return(
@@ -52,11 +52,7 @@
                     <ul>{metas}</ul>
                     */}
                    
-                <form>
-                    <input type="text"/>
-
-                    <input className="button" type="file"/>                
-                </form>
+                   
 
                 </div>
 
@@ -99,5 +95,37 @@
     
     </script>
 
+    <input type="file" name="inputfile" id="inputfile"/>
+    <pre id="output"></pre>
+    
+    <!-- This is my Text upload and classification code-->
+    <script type="text/javascript">
+    var textContent;
+        document.getElementById('inputfile')
+            .addEventListener('change',function() {
+                var fr=new FileReader();
+                fr.onload=function(){
+                    document.getElementById('output')
+                        .textContent=fr.result;
+                        textContent = fr.result;
+
+                        var contarr = textContent.split('\n');
+                        var v1 = contarr[0];
+                        var v2 = contarr[1];
+                        var v3 = contarr[2];
+                        var v4 = contarr[3];
+
+
+                        console.log(v1);
+                        console.log(v2);
+                        console.log(v3);
+                        console.log(v4);
+
+
+                }
+            textContent = fr.readAsText(this.files[0]);
+
+            })
+    </script>
     </body> 
 </html>
