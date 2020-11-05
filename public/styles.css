@@ -1,0 +1,26 @@
+.mainstyle{
+    background-color: rgb(116, 24, 202);
+    font-size: large;
+    color: aliceblue;
+    text-align: center;
+}
+.mainhead{
+    text-align: center;
+    color: whitesmoke;
+}
+.title{
+    font-size: 60px;
+}
+.imgclass{
+    height: 20px;
+    width: 20px;
+}
+.button{
+    color: whitesmoke;
+    background-color: rgb(66, 66, 66);
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    
+}

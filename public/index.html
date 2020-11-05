@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="mainstyle">
+ <head>
+     <meta charset="utf-8">
+     <link href="/styles.css" rel="stylesheet" type="text/css"/>
+ </head>  
+ <body>
+    <a href="https://ibb.co/YZBh8yq"><img src="https://i.ibb.co/jRkDGW1/LOGO.png" alt="LOGO" border="0"></a>
+        <div id="homepage">
+         <h1 class="mainhead">Upload your file to clasify and store data:</h1>
+        <div id = "metas">
+        </div>
+     </div>
+
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+     <script src="https://unpkg.com/react@15/dist/react.js"></script>
+     <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+
+     <!-- create react component -->
+    <script type ="text/babel">
+    
+    var Metas = React.createClass({
+        getInitialState: function(){
+            return({
+                metas: []
+            });
+        },
+        render:function(){
+            var metas = this.state.metas;
+            metas=metas.map(function(metas,index){
+                return(
+                    <li key={index}>
+                        <span className={metas.object.name}></span>
+                        <span className="name">{metas.obj.age}</span>
+                        <span className="rank">{metas.obj.dob}</span>
+                        </li>
+                )
+            })
+            return(
+                
+                <div id= "meta-container">
+                    {/*
+                    <form id="search" onSubmit={this.handleSubmit}>
+                    <label>Enter your name:</label>
+                    <input type="text" ref="name" placeholder ="name" required/>
+                    <label>Enter your age:</label>
+                    <input type="text" ref="age" placeholder ="age" required/>
+                    <label>Enter your date of birth:</label>
+                    <input type="text" ref="dob" placeholder ="dob" required/>
+                    <input type="submit" value="post name"/>
+                    </form>
+                    <ul>{metas}</ul>
+                    */}
+                   
+                <form>
+                    <input type="text"/>
+
+                    <input className="button" type="file"/>                
+                </form>
+
+                </div>
+
+            );
+        },
+        handleSubmit: function(e){
+            e.preventDefault();
+            var name = this.refs.name.value;
+            var age = this.refs.age.value;
+            var dob = this.refs.dob.value;
+
+//fetch('/api/metadata/')
+//  .then(response => response.json())
+//  .then(data => console.log(data));
+
+        //code to put to DB
+
+            var data = {
+            ['name']: name,
+            ['age']: age,
+            ['dob']: dob,
+            }         
+
+            JSON.stringify(data);
+
+            fetch('/api/metadata/', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            })
+
+
+        }
+
+    });
+
+    ReactDOM.render(<Metas/>,document.getElementById('metas'));
+    
+    </script>
+
+    </body> 
+</html>
