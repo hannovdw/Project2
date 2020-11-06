@@ -39,7 +39,7 @@
             return(
                 
                 <div id= "meta-container">
-                    {/*
+                    
                     <form id="search" onSubmit={this.handleSubmit}>
                     <label>Enter your name:</label>
                     <input type="text" ref="name" placeholder ="name" required/>
@@ -50,12 +50,10 @@
                     <input type="submit" value="post name"/>
                     </form>
                     <ul>{metas}</ul>
-                    */}
-                   
-                   
+                    
 
                 </div>
-
+                
             );
         },
         handleSubmit: function(e){
@@ -63,6 +61,7 @@
             var name = this.refs.name.value;
             var age = this.refs.age.value;
             var dob = this.refs.dob.value;
+            console.log('werk');
 
 //fetch('/api/metadata/')
 //  .then(response => response.json())
@@ -88,7 +87,6 @@
 
 
         }
-
     });
 
     ReactDOM.render(<Metas/>,document.getElementById('metas'));
@@ -100,7 +98,7 @@
     <input type="file" name="inputfile" id="inputfile"/>
     <pre id="output"></pre>
     
-    <script type="text/javascript">
+   <script type="text/javascript">
     var textContent;
         document.getElementById('inputfile')
             .addEventListener('change',function() {
@@ -111,7 +109,6 @@
                         textContent = fr.result;
  //splitting text file into arrays                       
                         var contarr = textContent.split('\n');
-                        
 //fetch metadata
                         function isTelNr(number){
                             if(number[0]=='0'||number[0]+number[1]+number[2]=='+27')
@@ -145,9 +142,8 @@
                 }
             textContent = fr.readAsText(this.files[0]);
             })
-            
-
 
     </script>
+
     </body> 
 </html>
